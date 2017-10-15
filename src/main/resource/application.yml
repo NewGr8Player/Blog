@@ -1,0 +1,11 @@
+#MySQL配置
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/restful?useUnicode=true&autoReconnect=true&failOverReadOnly=false&zeroDateTimeBehavior=round&autoReconnect=true
+    username: root
+    password: root
+#Redis配置
+  redis:
+    host: 127.0.0.1
+    password: root
+    port: 6379
