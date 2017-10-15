@@ -5,7 +5,7 @@ import com.xavier.authorization.model.TokenModel;
 import com.xavier.config.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -26,10 +26,8 @@ public class RedisTokenManager implements TokenManager {
     @Autowired
     public void setRedis(RedisTemplate redis) {
         this.redis = redis;
-        /* 使用String的序列化方法 */
-        redis.setKeySerializer(new StringRedisSerializer());
         /* 改变为Long类型之后必须更换序列化方法 */
-        //redis.setKeySerializer(new JdkSerializationRedisSerializer());
+        redis.setKeySerializer(new JdkSerializationRedisSerializer());
     }
 
     public TokenModel createToken(String userId) {
