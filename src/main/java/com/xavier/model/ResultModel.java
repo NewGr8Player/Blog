@@ -17,7 +17,7 @@ public class ResultModel {
 
     private String message; /* 返回结果描述 */
 
-    private Date requestDate;
+    private Date requestDate; /* 响应时间 */
 
     private Object content; /* 返回内容 */
 

@@ -1,6 +1,7 @@
 package com.xavier.domain.base;
 
-import io.swagger.annotations.ApiParam;
+import com.xavier.util.EntityKit;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -19,17 +20,19 @@ public class BaseEntity implements Serializable {
 
     @Id
     @Column(name = "id")
-    @ApiParam(hidden = true)
+    @ApiModelProperty(hidden = true)
     private String id;
 
     @Column(name = "create_date",updatable = false)
-    @ApiParam(hidden = true)
+    @ApiModelProperty(hidden = true)
     private Date createDate;
 
     @Column(name = "edit_date")
+    @ApiModelProperty(hidden = true)
     private Date editDate;
 
     public BaseEntity() {
+        this.id = EntityKit.generateUUID();
         this.createDate = new Date();
         this.editDate = new Date();
     }

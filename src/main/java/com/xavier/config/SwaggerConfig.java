@@ -37,9 +37,8 @@ public class SwaggerConfig {
                 .title("呦呵丶晓晓的个人博客接口说明文档")
                 .description("NewGr8Player's personal Blog,Spring Boot Based.")
                 .termsOfServiceUrl("http://github.com/NewGr8Player")
-                .contact(new Contact("呦呵丶晓晓","https://github.com/NewGr8Player","Xavier@programmer.net"))
+                .contact(new Contact("呦呵丶晓晓", "https://github.com/NewGr8Player", "Xavier@programmer.net"))
                 .version("1.0")
                 .build();
     }
-
 }
