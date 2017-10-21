@@ -16,8 +16,8 @@ import java.lang.reflect.Method;
 /**
  * <p>自定义拦截器，判断此次请求是否有权限</p>
  *
- * @author ScienJus
- * @date 2015/7/30.
+ * @author NewGr8Player
+ * @date 2017/10/21
  * @see com.xavier.authorization.annotation.Authorization
  */
 @Component

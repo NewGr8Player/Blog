@@ -5,8 +5,8 @@ import com.xavier.authorization.model.TokenModel;
 /**
  * <p>对Token进行操作的接口</p>
  *
- * @author ScienJus
- * @date 2015/7/31.
+ * @author NewGr8PLayer
+ * @date 2017/10/21
  */
 public interface TokenManager {
 

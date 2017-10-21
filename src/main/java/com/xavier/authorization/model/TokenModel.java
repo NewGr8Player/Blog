@@ -1,9 +1,9 @@
 package com.xavier.authorization.model;
 
 /**
- * <p>Token的Model类，可以增加字段提高安全性，例如时间戳、url签名</p>
+ * <p>Token的Model类</p>
  *
- * @author Xavier
+ * @author Newgr8Player
  * @date 2017/10/15
  */
 public class TokenModel {

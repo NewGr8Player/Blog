@@ -1,5 +1,7 @@
 package com.xavier.domain;
 
+import io.swagger.annotations.ApiParam;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,17 +13,22 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "sys_user")
 public class User {
+
     @Id
     @Column(name = "id")
+    @ApiParam(hidden = true)
     private String id;
 
     @Column(name = "username")
+    @ApiParam(name = "username", value = "用户名", required = true)
     private String username;
 
     @Column(name = "password")
+    @ApiParam(name = "password", value = "密码", required = true)
     private String password;
 
     @Column(name = "nickname")
+    @ApiParam(hidden = true)
     private String nickname;
 
     public String getUsername() {

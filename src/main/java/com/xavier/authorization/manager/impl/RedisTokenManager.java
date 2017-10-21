@@ -2,37 +2,33 @@ package com.xavier.authorization.manager.impl;
 
 import com.xavier.authorization.manager.TokenManager;
 import com.xavier.authorization.model.TokenModel;
+import com.xavier.authorization.util.TokenUtil;
 import com.xavier.config.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
  * <p>通过Redis存储和验证token的实现类</p>
  *
- * @author ScienJus
- * @date 2015/7/31.
- * @see com.xavier.authorization.manager.TokenManager
+ * @author NewGr8Player
+ * @date 2017/10/21
+ * @see com.xavier.authorization.manager
  */
 @Component
 public class RedisTokenManager implements TokenManager {
 
-    private RedisTemplate<String, String> redis;
+    private StringRedisTemplate redis;
 
     @Autowired
-    public void setRedis(RedisTemplate redis) {
+    public void setRedis(StringRedisTemplate redis) {
         this.redis = redis;
-        /* 改变为Long类型之后必须更换序列化方法 */
-        redis.setKeySerializer(new JdkSerializationRedisSerializer());
     }
 
     public TokenModel createToken(String userId) {
-        /* 使用uuid作为源token */
-        String token = UUID.randomUUID().toString().replace("-", "");
+        String token = TokenUtil.Generator();
         TokenModel model = new TokenModel(userId, token);
         /* 存储到redis并设置过期时间 */
         redis.boundValueOps(userId).set(token, Constants.TOKEN_EXPIRES_TIME, TimeUnit.SECONDS);

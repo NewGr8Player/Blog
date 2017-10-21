@@ -3,8 +3,8 @@ package com.xavier.config;
 /**
  * <p>常量</p>
  *
- * @author ScienJus
- * @date 2015/7/31.
+ * @author NewGr8Player
+ * @date 2017/10/21
  */
 public class Constants {
 
@@ -16,26 +16,11 @@ public class Constants {
     /**
      * <p>token有效期(秒)</p>
      */
-    public static final int TOKEN_EXPIRES_TIME = 1 * 60 * 60;
+    public static final int TOKEN_EXPIRES_TIME = 1 * 60 * 60;/* 1小时 */
 
     /**
      * <p>存放Authorization的header字段</p>
      */
     public static final String AUTHORIZATION = "authorization";
-
-    /**
-     * <p>url签名发布者</p>
-     */
-    public static final String SIGNER = "Xavier";
-
-    /**
-     * <p>公钥</p>
-     * */
-    public static final String PUBLIC_KEY = "NewGr8Player";
-
-    /**
-     * <p>私钥</p>
-     * */
-    public static final String PRIVATE_KEY = "yhxxmmd123";
 
 }

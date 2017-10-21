@@ -3,8 +3,13 @@ package com.xavier.authorization.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * <p>加密工具类</p>
+ *
+ * @author NewGr8Player
+ * @date 2017/10/21
+ */
 public class EncryptUtil {
-
 
     /**
      * <p>SHA-256加密</p>
@@ -22,11 +27,11 @@ public class EncryptUtil {
     /**
      * <p>字符串加密</p>
      *
-     * @param strText (加密文本)
-     * @param digesttrType (机密类型)
-     * @return String (加密后的字符串)
+     * @param strText      加密文本
+     * @param digesttrType 加密类型
+     * @return String 加密后的字符串
      */
-    private String SHA(final String strText, final String digesttrType) {
+    public static String SHA(final String strText, final String digesttrType) {
         /* 返回值 */
         String strResult = null;
 
@@ -34,7 +39,7 @@ public class EncryptUtil {
         if (strText != null && strText.length() > 0) {
             try {
                 /* SHA 加密开始 */
-                // 创建加密对象 并传入加密类型 */
+                /* 创建加密对象 并传入加密类型 */
                 MessageDigest messageDigest = MessageDigest.getInstance(digesttrType);
                 /* 传入要加密的字符串 */
                 messageDigest.update(strText.getBytes());

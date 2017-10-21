@@ -3,12 +3,13 @@ package com.xavier.config;
 /**
  * <p>自定义请求状态码</p>
  *
- * @author xavier
- * @date 2015/7/15.
+ * @author NewGr8Player
+ * @date 2017/10/21
  */
 public enum ResultStatus {
     SUCCESS(100, "成功！"),
-    USERNAME_OR_PASSWORD_ERROR(-1001,"用户名或密码错误！");
+    USER_NOT_FOUND(-1001,"用户不存在"),
+    USERNAME_OR_PASSWORD_ERROR(-1002,"用户名或密码错误！");
 
     /**
      * 返回码

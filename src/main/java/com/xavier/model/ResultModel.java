@@ -1,6 +1,9 @@
 package com.xavier.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xavier.config.ResultStatus;
+
+import java.util.Date;
 
 /**
  * <p>响应结果</p>
@@ -14,6 +17,8 @@ public class ResultModel {
 
     private String message; /* 返回结果描述 */
 
+    private Date requestDate;
+
     private Object content; /* 返回内容 */
 
     public int getCode() {
@@ -24,6 +29,11 @@ public class ResultModel {
         return message;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    public Date getRequestDate() {
+        return requestDate;
+    }
+
     public Object getContent() {
         return content;
     }
@@ -32,24 +42,28 @@ public class ResultModel {
         this.code = code;
         this.message = message;
         this.content = "";
+        this.requestDate = new Date();
     }
 
     public ResultModel(int code, String message, Object content) {
         this.code = code;
         this.message = message;
         this.content = content;
+        this.requestDate = new Date();
     }
 
     public ResultModel(ResultStatus status) {
         this.code = status.getCode();
         this.message = status.getMessage();
         this.content = "";
+        this.requestDate = new Date();
     }
 
     public ResultModel(ResultStatus status, Object content) {
         this.code = status.getCode();
         this.message = status.getMessage();
         this.content = content;
+        this.requestDate = new Date();
     }
 
     public static ResultModel ok(Object content) {
